@@ -13,7 +13,7 @@ export const products: Product[] = [
     title: "HealthPilot.ai",
     description: "Scaling medical expertise through intelligent agents that guide clinical decision-making and care pathways.",
     icon: "🏥",
-    logoImage: "/logos/health_pilot_logo.png",
+    logoImage: "/logos/health_pilot_logo.jpg",
     slug: "healthpilot",
     longDescription: [
       "HealthPilot.ai is an agentic AI system designed to augment the capabilities of healthcare professionals, enabling them to deliver more accurate diagnoses and effective treatment plans.",
