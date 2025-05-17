@@ -62,11 +62,19 @@ export default function ProductsPage() {
                   )}
 
                   <div className="text-center mt-8">
-                    <Button asChild className="bg-blue-700 hover:bg-blue-800">
-                      <Link href="/contact">
-                        Learn More About {product.title}
-                      </Link>
-                    </Button>
+                    {product.slug === "healthpilot" ? (
+                      <Button asChild className="bg-blue-700 hover:bg-blue-800">
+                        <a href="https://healthpilot.ai" target="_blank" rel="noopener noreferrer">
+                          Learn More About {product.title}
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button asChild className="bg-blue-700 hover:bg-blue-800">
+                        <Link href="/contact">
+                          Learn More About {product.title}
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}
