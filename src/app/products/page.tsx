@@ -68,6 +68,12 @@ export default function ProductsPage() {
                           Learn More About {product.title}
                         </a>
                       </Button>
+                    ) : product.slug === "schoolskies" ? (
+                      <Button asChild className="bg-blue-700 hover:bg-blue-800">
+                        <a href="https://www.schoolskies.com" target="_blank" rel="noopener noreferrer">
+                          Learn More About {product.title}
+                        </a>
+                      </Button>
                     ) : (
                       <Button asChild className="bg-blue-700 hover:bg-blue-800">
                         <Link href="/contact">
