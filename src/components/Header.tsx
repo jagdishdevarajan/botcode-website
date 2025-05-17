@@ -7,7 +7,7 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
-            src="/BotCodeLogo.png" // Fixed the logo path to point to the correct location
+            src="/botcodelogo.jpg"
             alt="BotCode Logo"
             width={200}
             height={60}
