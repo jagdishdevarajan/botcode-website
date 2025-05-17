@@ -36,11 +36,19 @@ export function ProductCard({ title, description, icon, logoImage, slug }: Produ
         </CardDescription>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" asChild>
-          <Link href="/contact">
-            Learn More
-          </Link>
-        </Button>
+        {slug === "healthpilot" ? (
+          <Button variant="outline" asChild>
+            <a href="https://www.healthpilot.ai" target="_blank" rel="noopener noreferrer">
+              Learn More
+            </a>
+          </Button>
+        ) : (
+          <Button variant="outline" asChild>
+            <Link href="/contact">
+              Learn More
+            </Link>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
