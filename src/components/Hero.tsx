@@ -16,7 +16,7 @@ export function Hero() {
             Building Agentic AI Systems for Healthcare and Education
           </h1>
           <p className="max-w-2xl mb-10 text-xl text-blue-100">
-            We leverage AI to drive smarter healthcare and educational outcomes. Our systems don't just understand — they take action.
+            We leverage AI native development to drive smarter healthcare and educational outcomes. Our systems don't just understand — they take action.
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <Button asChild className="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-6">

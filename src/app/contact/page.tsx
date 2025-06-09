@@ -1,11 +1,47 @@
+"use client";
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
+import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 export default function ContactPage() {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSending(true);
+
+    try {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      const templateParams = {
+        user_name: formData.get('user_name'),
+        user_email: formData.get('user_email'),
+        message: formData.get('message'),
+        to_email: 'jagdish@botcode.com' // Add fixed recipient email
+      };
+
+      await emailjs.send(
+        'service_qcvklp7',
+        'template_i55ifw1',
+        templateParams,
+        'UcqeuTFce-6RhMkoi'
+      );
+      form.reset();
+      alert('Message sent successfully!');
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -23,37 +59,49 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
-                  <form className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-1">
                         Your Name
                       </label>
-                      <Input id="name" placeholder="Enter your name" />
+                      <Input 
+                        id="name" 
+                        name="user_name"
+                        placeholder="Enter your name" 
+                        required
+                      />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-1">
                         Email Address
                       </label>
-                      <Input id="email" type="email" placeholder="Enter your email" />
+                      <Input 
+                        id="email" 
+                        name="user_email"
+                        type="email" 
+                        placeholder="Enter your email" 
+                        required
+                      />
                     </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                        Subject
-                      </label>
-                      <Input id="subject" placeholder="Enter subject" />
-                    </div>
+                   
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-1">
                         Message
                       </label>
                       <Textarea
                         id="message"
+                        name="message"
                         placeholder="Enter your message"
                         className="min-h-[150px]"
+                        required
                       />
                     </div>
-                    <Button type="submit" className="w-full md:w-auto bg-blue-700 hover:bg-blue-800">
-                      Send Message
+                    <Button 
+                      type="submit" 
+                      className="w-full md:w-auto bg-blue-700 hover:bg-blue-800"
+                      disabled={sending}
+                    >
+                      {sending ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </div>
