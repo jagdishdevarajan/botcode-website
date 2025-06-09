@@ -36,11 +36,37 @@ export function ProductCard({ title, description, icon, logoImage, slug }: Produ
         </CardDescription>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" asChild>
-          <Link href="/contact">
-            Learn More
-          </Link>
-        </Button>
+        {slug === "healthpilot" ? (
+          <Button variant="outline" asChild>
+            <a href="https://www.healthpilot.ai" target="_blank" rel="noopener noreferrer">
+              Learn More
+            </a>
+          </Button>
+        ) : slug === "schoolskies" ? (
+          <Button variant="outline" asChild>
+            <a href="https://www.schoolskies.com" target="_blank" rel="noopener noreferrer">
+              Learn More
+            </a>
+          </Button>
+        ) : slug === "first-clinic" ? (
+          <Button variant="outline" asChild>
+            <a href="https://www.firstclinic.in" target="_blank" rel="noopener noreferrer">
+              Learn More
+            </a>
+          </Button>
+        ) : slug === "iamai-health" ? (
+          <Button variant="outline" asChild>
+            <a href="https://iamai.health" target="_blank" rel="noopener noreferrer">
+              Learn More
+            </a>
+          </Button>
+        ) : (
+          <Button variant="outline" asChild>
+            <Link href="/contact">
+              Learn More
+            </Link>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
