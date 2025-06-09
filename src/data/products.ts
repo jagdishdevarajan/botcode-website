@@ -125,5 +125,25 @@ export const products: Product[] = [
       "Remote follow-up capabilities",
       "Healthcare provider network"
     ]
+  },
+  {
+    title: "IAMAI.HEALTH",
+    description: "Revolutionary healthcare technology transforming patient care through advanced AI and robotics.",
+    icon: "🤖",
+    logoImage: "/logos/IAMAILogo.png",
+    slug: "iamai-health",
+    longDescription: [
+      "IAMAI.HEALTH is pioneering the revolutionary era of advanced robotics and AI in healthcare, where precision meets compassion, and technology saves lives.",
+      "Our platform integrates AI-powered diagnostics, real-time monitoring, and robotic surgery capabilities to deliver superhuman accuracy in medical care.",
+      "Founded by Dr. Jagdish Devarajan, IAMAI.HEALTH represents the future of healthcare with projected 99.9% precision rates and the vision of healthcare robotics enabling physician embodiment of Healthcare AI."
+    ],
+    features: [
+      "AI-powered diagnostics with superhuman accuracy",
+      "Real-time patient monitoring with predictive insights",
+      "Robotic surgery with AI-guided precision",
+      "Continuous patient monitoring with instant alerts",
+      "Advanced machine learning algorithms for condition detection",
+      "Healthcare robotics for physician embodiment"
+    ]
   }
 ];

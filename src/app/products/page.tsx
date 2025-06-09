@@ -74,6 +74,18 @@ export default function ProductsPage() {
                           Learn More About {product.title}
                         </a>
                       </Button>
+                    ) : product.slug === "first-clinic" ? (
+                      <Button asChild className="bg-blue-700 hover:bg-blue-800">
+                        <a href="https://www.firstclinic.in" target="_blank" rel="noopener noreferrer">
+                          Learn More About {product.title}
+                        </a>
+                      </Button>
+                    ) : product.slug === "iamai-health" ? (
+                      <Button asChild className="bg-blue-700 hover:bg-blue-800">
+                        <a href="https://iamai.health" target="_blank" rel="noopener noreferrer">
+                          Learn More About {product.title}
+                        </a>
+                      </Button>
                     ) : (
                       <Button asChild className="bg-blue-700 hover:bg-blue-800">
                         <Link href="/contact">
