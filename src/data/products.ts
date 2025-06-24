@@ -64,27 +64,29 @@ export const products: Product[] = [
       "Specialized medical transcription",
       "Smart content distribution",
       "Audience engagement analytics",
-      "Secure collaboration tools"
-    ]
+      "Secure collaboration tools"    ]
   },
   {
-    title: "QuestionAir",
-    description: "Helping students identify weak areas and retain knowledge through intelligently timed practice questions.",
-    icon: "❓",
-    logoImage: "/logos/questionair_logo.png",
-    slug: "questionair",
+    title: "MedNeuron",
+    description: "AI Engine for Clinical Excellence - Specialized RAG models for clinical decision support, built on evidence and tuned for action.",
+    icon: "🧠",
+    logoImage: "/logos/MedNeuronLogo.png",
+    slug: "medneuron",
     longDescription: [
-      "QuestionAir is a product that helps students identify their weak areas in subjects and answer questions with appropriate intervals so the knowledge can be retained to score better in exams.",
-      "Our system uses AI to analyze student performance patterns, identify knowledge gaps, and create personalized question sets that reinforce learning at optimal intervals.",
-      "QuestionAir can be used as a standalone implementation or integrated with SchoolSkies to provide a comprehensive education technology solution for schools and educational institutions."
+      "MedNeuron is a specialized AI engine that powers HealthPilot.ai's intelligent healthcare platform while offering standalone AI services for organizations seeking specialized clinical intelligence.",
+      "Built on evidence-based knowledge from standards of care, medical literature, screening guidelines, and real-world clinical data, MedNeuron delivers precision clinical intelligence through fine-tuned RAG models.",
+      "Available as both standalone service and integrated platform, MedNeuron provides customizable clinical workflows with on-premise or cloud deployment options, all within a HIPAA compliant architecture."
     ],
     features: [
-      "Personalized question sets based on student performance",
-      "Spaced repetition algorithms for improved retention",
-      "Weakness identification and targeted practice",
-      "Performance analytics and progress tracking",
-      "Integration with SchoolSkies or standalone operation",
-      "Multi-subject support across different curricula"
+      "Fine-tuned RAG models for multiple medical specialties",
+      "Real-time clinical decision support with low-latency inference",
+      "Evidence-based recommendations from medical literature",
+      "HIPAA compliant architecture for healthcare environments",
+      "Specialized models for General Medicine, Obesity, Endocrine, Psychiatry",
+      "Support for Ophthalmology, ENT, and Dermatology specialties",
+      "Customizable clinical workflows and deployment options",
+      "Multi-modal data processing capabilities",
+      "Continuous learning from clinical outcomes"
     ]
   },
   {
@@ -125,8 +127,7 @@ export const products: Product[] = [
       "Remote follow-up capabilities",
       "Healthcare provider network"
     ]
-  },
-  {
+  },  {
     title: "IAMAI.HEALTH",
     description: "Revolutionary healthcare technology transforming patient care through advanced AI and robotics.",
     icon: "🤖",
@@ -144,6 +145,25 @@ export const products: Product[] = [
       "Continuous patient monitoring with instant alerts",
       "Advanced machine learning algorithms for condition detection",
       "Healthcare robotics for physician embodiment"
+    ]
+  },  {
+    title: "QuestionAir",
+    description: "Helping students identify weak areas and retain knowledge through intelligently timed practice questions.",
+    icon: "❓",
+    logoImage: "/logos/questionair_logo.png",
+    slug: "questionair",
+    longDescription: [
+      "QuestionAir is a product that helps students identify their weak areas in subjects and answer questions with appropriate intervals so the knowledge can be retained to score better in exams.",
+      "Our system uses AI to analyze student performance patterns, identify knowledge gaps, and create personalized question sets that reinforce learning at optimal intervals.",
+      "QuestionAir can be used as a standalone implementation or integrated with SchoolSkies to provide a comprehensive education technology solution for schools and educational institutions."
+    ],
+    features: [
+      "Personalized question sets based on student performance",
+      "Spaced repetition algorithms for improved retention",
+      "Weakness identification and targeted practice",
+      "Performance analytics and progress tracking",
+      "Integration with SchoolSkies or standalone operation",
+      "Multi-subject support across different curricula"
     ]
   }
 ];
