@@ -29,6 +29,25 @@ export const products: Product[] = [
     ]
   },
   {
+    title: "MedNeuron",
+    description: "Medical AI assistant by HealthPilot.ai that enhances clinical decision-making through intelligent analysis and recommendations.",
+    icon: "🧠",
+    logoImage: "/MedNeuronLogoTransparent.png",
+    slug: "medneuron",
+    longDescription: [
+      "MedNeuron is an advanced medical AI assistant designed to augment clinical decision-making with intelligent analysis and evidence-based recommendations.",
+      "Developed by HealthPilot.ai, MedNeuron combines the power of neural networks with medical expertise to provide healthcare professionals with timely insights and support.",
+      "The system helps physicians navigate complex cases, identify potential diagnoses, and develop effective treatment plans based on the latest medical research and best practices."
+    ],
+    features: [
+      "Clinical decision support with AI-powered analysis",
+      "Integration with electronic health records",
+      "Evidence-based recommendations and insights",
+      "Medical literature analysis and summarization",
+      "Continuous learning from clinical outcomes"
+    ]
+  },
+  {
     title: "First Clinic",
     description: "Augmenting point of presence healthcare with HealthPilot technology and partnering with real estate owners to be part of the health care ecosystem to deliver smarter, more efficient care.",
     icon: "👨‍⚕️",

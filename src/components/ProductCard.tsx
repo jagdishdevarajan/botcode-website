@@ -60,6 +60,12 @@ export function ProductCard({ title, description, icon, logoImage, slug }: Produ
               Learn More
             </a>
           </Button>
+        ) : slug === "medneuron" ? (
+          <Button variant="outline" asChild>
+            <a href="https://medneuron.com" target="_blank" rel="noopener noreferrer">
+              Learn More
+            </a>
+          </Button>
         ) : (
           <Button variant="outline" asChild>
             <Link href="/contact">
