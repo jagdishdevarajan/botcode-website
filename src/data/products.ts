@@ -30,20 +30,23 @@ export const products: Product[] = [
   },
   {
     title: "MedNeuron",
-    description: "Medical AI assistant by HealthPilot.ai that enhances clinical decision-making through intelligent analysis and recommendations.",
+    description: "AI Engine for Clinical Excellence - Specialized RAG models for clinical decision support, built on evidence and tuned for action.",
     icon: "🧠",
     logoImage: "/MedNeuronLogoTransparent.png",
     slug: "medneuron",
     longDescription: [
-      "MedNeuron is an advanced medical AI assistant designed to augment clinical decision-making with intelligent analysis and evidence-based recommendations.",
-      "Developed by HealthPilot.ai, MedNeuron combines the power of neural networks with medical expertise to provide healthcare professionals with timely insights and support.",
-      "The system helps physicians navigate complex cases, identify potential diagnoses, and develop effective treatment plans based on the latest medical research and best practices."
+      "MedNeuron is a specialized AI engine that powers HealthPilot.ai's intelligent healthcare platform while offering standalone AI services for organizations seeking specialized clinical intelligence.",
+      "Built on evidence-based knowledge from standards of care, medical literature, screening guidelines, and real-world clinical data, MedNeuron delivers precision clinical intelligence through fine-tuned RAG models.",
+      "Available as both standalone service and integrated platform, MedNeuron provides customizable clinical workflows with on-premise or cloud deployment options, all within a HIPAA compliant architecture."
     ],
     features: [
-      "Clinical decision support with AI-powered analysis",
-      "Integration with electronic health records",
-      "Evidence-based recommendations and insights",
-      "Medical literature analysis and summarization",
+      "Fine-tuned RAG models for multiple medical specialties",
+      "Real-time clinical decision support with low-latency inference",
+      "Evidence-based recommendations from medical literature",
+      "HIPAA compliant architecture for healthcare environments",
+      "Specialized models for General Medicine, Obesity, Endocrine, Psychiatry",
+      "Customizable clinical workflows and deployment options",
+      "Multi-modal data processing capabilities",
       "Continuous learning from clinical outcomes"
     ]
   },
@@ -84,29 +87,7 @@ export const products: Product[] = [
       "Smart content distribution",
       "Audience engagement analytics",
       "Secure collaboration tools"    ]
-  },
-  {
-    title: "MedNeuron",
-    description: "AI Engine for Clinical Excellence - Specialized RAG models for clinical decision support, built on evidence and tuned for action.",
-    icon: "🧠",
-    logoImage: "/logos/MedNeuronLogo.png",
-    slug: "medneuron",
-    longDescription: [
-      "MedNeuron is a specialized AI engine that powers HealthPilot.ai's intelligent healthcare platform while offering standalone AI services for organizations seeking specialized clinical intelligence.",
-      "Built on evidence-based knowledge from standards of care, medical literature, screening guidelines, and real-world clinical data, MedNeuron delivers precision clinical intelligence through fine-tuned RAG models.",
-      "Available as both standalone service and integrated platform, MedNeuron provides customizable clinical workflows with on-premise or cloud deployment options, all within a HIPAA compliant architecture."
-    ],
-    features: [
-      "Fine-tuned RAG models for multiple medical specialties",
-      "Real-time clinical decision support with low-latency inference",
-      "Evidence-based recommendations from medical literature",
-      "HIPAA compliant architecture for healthcare environments",
-      "Specialized models for General Medicine, Obesity, Endocrine, Psychiatry",
-      "Support for Ophthalmology, ENT, and Dermatology specialties",
-      "Customizable clinical workflows and deployment options",
-      "Multi-modal data processing capabilities",
-      "Continuous learning from clinical outcomes"
-    ]
+  
   },
   {
     title: "SchoolSkies",
