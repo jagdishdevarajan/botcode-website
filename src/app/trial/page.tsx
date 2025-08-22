@@ -47,24 +47,65 @@ export default function TrialPage() {
         `\nNDA Required: ${txt("nda") === "on" ? "Yes" : "No"}\n` +
         `MoU Trial Terms Accepted: ${txt("mou") === "on" ? "Yes" : "No"}`;
 
-      const templateParams = {
-        user_name: `${txt("company_name")} — ${txt("contact_name")}`,
-        user_email: txt("work_email"),
-        message: composedMessage,
-  to_email: "jagdish@botcode.com",
-      };
+      // Prepare JSON payload for server-side email
+      const payload: Record<string, any> = {};
+      data.forEach((value, key) => {
+        if (payload[key]) {
+          // consolidate repeated keys (checkbox groups)
+          payload[key] = Array.isArray(payload[key]) ? [...payload[key], value] : [payload[key], value];
+        } else {
+          payload[key] = value;
+        }
+      });
 
-      await emailjs.send(
-        "service_qcvklp7",
-        "template_i55ifw1",
-        templateParams,
-        "UcqeuTFce-6RhMkoi"
-      );
+      // Attempt server-side send via Resend API route
+      const res = await fetch("/api/trial", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      let shouldFallback = !res.ok;
+      if (!shouldFallback) {
+        try {
+          const info = await res.json();
+          if (!info?.ok) {
+            shouldFallback = true;
+            console.warn("/api/trial server send responded ok=false:", info?.error);
+          }
+        } catch (e) {
+          // Non-JSON or unexpected response; fallback to be safe
+          shouldFallback = true;
+        }
+      }
+
+      if (shouldFallback) {
+        try {
+          const info = await res.json();
+          console.warn("/api/trial server send failed:", info?.error || res.statusText);
+        } catch (_) {
+          console.warn("/api/trial server send failed with status:", res.status, res.statusText);
+        }
+        // Fallback to EmailJS client send if server route fails
+        const templateParams = {
+          user_name: `${txt("company_name")} — ${txt("contact_name")}`,
+          user_email: txt("work_email"),
+          message: composedMessage,
+          to_email: "jagdish@botcode.com",
+        };
+
+        await emailjs.send(
+          "service_qcvklp7",
+          "template_i55ifw1",
+          templateParams,
+          "UcqeuTFce-6RhMkoi"
+        );
+      }
       form.reset();
       alert("Thanks! We’ve received your request. Our team will reach out shortly.");
     } catch (err) {
       console.error(err);
-  alert("Failed to submit. Please try again or email jagdish@botcode.com.");
+      alert("Failed to submit. Please try again or email jagdish@botcode.com.");
     } finally {
       setSending(false);
     }
