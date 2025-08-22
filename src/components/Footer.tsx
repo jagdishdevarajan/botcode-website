@@ -7,49 +7,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">BotCode</h3>
-            <p className="mb-4">Agentic AI for healthcare and education</p>
+            <p className="mb-4">AI‑native software for global enterprises</p>
             <div className="space-y-2">
-              <p>DevaDropa</p>
-              <p>No 7, Krishna Street,</p>
-              <p>Nungambakkam</p>
-              <p>Chennai 600 034</p>
-              <p>India</p>
+              <p>Contact: admin@botcode.com</p>
             </div>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Products</h3>
+            <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/products" className="hover:text-blue-200 transition-colors">
-                  HealthPilot.ai
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-blue-200 transition-colors">
-                  First Clinic
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-blue-200 transition-colors">
-                  Talks.Doctor
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-blue-200 transition-colors">
-                  QuestionAir
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-blue-200 transition-colors">
-                  SchoolSkies
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-blue-200 transition-colors">
-                  Chennai.Health
-                </Link>
-              </li>
+              <li><Link href="/services" className="hover:text-blue-200 transition-colors">AI‑Native Development</Link></li>
+              <li><Link href="/services" className="hover:text-blue-200 transition-colors">Human‑in‑the‑Loop Delivery</Link></li>
+              <li><Link href="/services" className="hover:text-blue-200 transition-colors">SaaS‑to‑Custom Migration</Link></li>
+              <li><Link href="/products" className="hover:text-blue-200 transition-colors">Healthcare Products (Supported)</Link></li>
             </ul>
           </div>
 

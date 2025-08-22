@@ -23,7 +23,7 @@ export default function ContactPage() {
         user_name: formData.get('user_name'),
         user_email: formData.get('user_email'),
         message: formData.get('message'),
-        to_email: 'jagdish@botcode.com' // Add fixed recipient email
+        to_email: 'admin@botcode.com'
       };
 
       await emailjs.send(

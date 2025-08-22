@@ -10,10 +10,10 @@ export default function ProductsPage() {
     <>
       <Header />
       <main className="flex-grow">
-        <div className="bg-blue-900 text-white py-16">
+    <div className="bg-blue-900 text-white py-16">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold mb-4">Our Products</h1>
-            <p className="text-xl">AI-powered healthcare solutions</p>
+      <h1 className="text-4xl font-bold mb-4">Healthcare Products (Supported)</h1>
+      <p className="text-xl">Legacy and in-market solutions we continue to support.</p>
           </div>
         </div>
 
@@ -21,7 +21,7 @@ export default function ProductsPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               {products.map((product) => (
-                <div key={product.slug} className="mb-20 pb-12 border-b border-gray-200">
+                <div id={product.slug} key={product.slug} className="mb-20 pb-12 border-b border-gray-200">
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
                     {product.logoImage ? (
                       <div className="flex-shrink-0 w-48 h-32 relative flex items-center justify-center">
@@ -68,12 +68,6 @@ export default function ProductsPage() {
                           Learn More About {product.title}
                         </a>
                       </Button>
-                    ) : product.slug === "schoolskies" ? (
-                      <Button asChild className="bg-blue-700 hover:bg-blue-800">
-                        <a href="https://www.schoolskies.com" target="_blank" rel="noopener noreferrer">
-                          Learn More About {product.title}
-                        </a>
-                      </Button>
                     ) : product.slug === "first-clinic" ? (
                       <Button asChild className="bg-blue-700 hover:bg-blue-800">
                         <a href="https://www.firstclinic.in" target="_blank" rel="noopener noreferrer">
@@ -98,13 +92,12 @@ export default function ProductsPage() {
               ))}
 
               <div className="bg-gray-50 p-8 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">Why Choose BotCode Healthcare Solutions?</h2>
+                <h2 className="text-2xl font-bold mb-4">Support & Engagement</h2>
                 <ul className="list-disc pl-6 space-y-3">
-                  <li>Built by healthcare professionals for healthcare professionals</li>
-                  <li>Agentic AI that goes beyond simple chatbots to take action</li>
-                  <li>Seamless integration with existing systems</li>
-                  <li>Data security and privacy-focused design</li>
-                  <li>Proven results in improving patient outcomes</li>
+                  <li>Long‑term support for existing customers</li>
+                  <li>Selective new deployments where there’s strategic fit</li>
+                  <li>Migration paths to AI‑native custom systems</li>
+                  <li>Compliance, security, and integration best practices</li>
                 </ul>
               </div>
             </div>

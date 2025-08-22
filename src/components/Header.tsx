@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Header() {
   return (
-    <header className="border-b">
+    <header className="border-b sticky top-0 z-40 bg-white/80 backdrop-blur">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
@@ -22,13 +22,18 @@ export function Header() {
               </Link>
             </li>
             <li>
+              <Link href="/services" className="font-medium text-blue-800 hover:text-blue-600">
+                Services
+              </Link>
+            </li>
+            <li>
               <Link href="/about" className="font-medium text-blue-800 hover:text-blue-600">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/products" className="font-medium text-blue-800 hover:text-blue-600">
-                Products
+              <Link href="/blog" className="font-medium text-blue-800 hover:text-blue-600">
+                Blog
               </Link>
             </li>
             <li>

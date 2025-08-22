@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BotCode - Agentic AI for Healthcare",
-  description: "BotCode combines clinical expertise, AI, and scalable infrastructure to deliver smarter care pathways.",
+  title: "BotCode — AI‑native software for enterprises",
+  description: "We design and ship custom, AI‑native systems with human‑in‑the‑loop assurance. Lower TCO, faster delivery, full IP ownership.",
 };
 
 export default function RootLayout({

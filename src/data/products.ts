@@ -71,45 +71,6 @@ export const products: Product[] = [
     ]
   },
   {
-    title: "Talks.Doctor",
-    description: "Bringing out the best in the best doctors in the field through AI-enhanced communication and knowledge sharing.",
-    icon: "🎙️",
-    logoImage: "/logos/talks_doctor_logo.jpg",
-    slug: "talks-doctor",
-    longDescription: [
-      "Talks.Doctor is a knowledge-sharing platform that amplifies medical expertise through intelligent content creation, curation, and distribution.",
-      "Our system helps leading physicians transform their clinical insights into valuable educational content that can be shared with colleagues, trainees, and patients.",
-      "By capturing and disseminating specialized knowledge, Talks.Doctor creates a multiplier effect for medical expertise, extending the reach and impact of top healthcare professionals."
-    ],
-    features: [
-      "AI-assisted content creation",
-      "Specialized medical transcription",
-      "Smart content distribution",
-      "Audience engagement analytics",
-      "Secure collaboration tools"    ]
-  
-  },
-  {
-    title: "SchoolSkies",
-    description: "Comprehensive school management platform that streamlines and automates administrative tasks for educational institutions.",
-    icon: "🏫",
-    logoImage: "/logos/school_skies_logo.svg",
-    slug: "schoolskies",
-    longDescription: [
-      "SchoolSkies is a leading school ERP (Enterprise Resource Planning) software tailored for educational institutions, providing advanced features for efficient and intelligent school management.",
-      "Our platform simplifies everything from admissions and attendance to fee collection and academic reporting, creating a seamless experience for administrators, teachers, students, and parents.",
-      "With innovative safety features like BLE ID cards for student tracking and GPS monitoring for school buses, SchoolSkies prioritizes both educational excellence and student security."
-    ],
-    features: [
-      "Student and teacher management",
-      "Admission portal and fee management",
-      "Attendance tracking and library management",
-      "Mobile app for parents and teachers",
-      "Safety features including student tracking",
-      "Customizable to meet specific school requirements"
-    ]
-  },
-  {
     title: "Chennai.Health",
     description: "Making Chennai the preferred healthcare destination for the world with cutting-edge AI and medical expertise.",
     icon: "🌍",
@@ -136,7 +97,7 @@ export const products: Product[] = [
     longDescription: [
       "IAMAI.HEALTH is pioneering the revolutionary era of advanced robotics and AI in healthcare, where precision meets compassion, and technology saves lives.",
       "Our platform integrates AI-powered diagnostics, real-time monitoring, and robotic surgery capabilities to deliver superhuman accuracy in medical care.",
-      "Founded by Dr. Jagdish Devarajan, IAMAI.HEALTH represents the future of healthcare with projected 99.9% precision rates and the vision of healthcare robotics enabling physician embodiment of Healthcare AI."
+  "IAMAI.HEALTH represents the future of healthcare with projected 99.9% precision rates and the vision of healthcare robotics enabling physician embodiment of Healthcare AI."
     ],
     features: [
       "AI-powered diagnostics with superhuman accuracy",
@@ -145,25 +106,6 @@ export const products: Product[] = [
       "Continuous patient monitoring with instant alerts",
       "Advanced machine learning algorithms for condition detection",
       "Healthcare robotics for physician embodiment"
-    ]
-  },  {
-    title: "QuestionAir",
-    description: "Helping students identify weak areas and retain knowledge through intelligently timed practice questions.",
-    icon: "❓",
-    logoImage: "/logos/questionair_logo.png",
-    slug: "questionair",
-    longDescription: [
-      "QuestionAir is a product that helps students identify their weak areas in subjects and answer questions with appropriate intervals so the knowledge can be retained to score better in exams.",
-      "Our system uses AI to analyze student performance patterns, identify knowledge gaps, and create personalized question sets that reinforce learning at optimal intervals.",
-      "QuestionAir can be used as a standalone implementation or integrated with SchoolSkies to provide a comprehensive education technology solution for schools and educational institutions."
-    ],
-    features: [
-      "Personalized question sets based on student performance",
-      "Spaced repetition algorithms for improved retention",
-      "Weakness identification and targeted practice",
-      "Performance analytics and progress tracking",
-      "Integration with SchoolSkies or standalone operation",
-      "Multi-subject support across different curricula"
     ]
   }
 ];

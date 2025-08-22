@@ -41,39 +41,59 @@ export default function Home() {
 
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Products</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">AI‑Native Services</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {products.map((product) => (
-                <ProductCard
-                  key={product.slug}
-                  title={product.title}
-                  description={product.description}
-                  icon={product.icon}
-                  logoImage={product.logoImage}
-                  slug={product.slug}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">About Dr. Jagdish Devarajan</h2>
-              <p className="text-lg mb-8">
-                An orthopedic surgeon turned tech entrepreneur, building AI-powered systems
-                that simplify complexity and scale impact — especially in healthcare.
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <p className="text-lg text-gray-700">
+                Build custom software that outperforms off‑the‑shelf SaaS. Human‑in‑the‑loop delivery, transparent metrics, and full IP ownership.
               </p>
-              <Button asChild variant="outline" className="mx-auto">
-                <Link href="/about">Read More</Link>
-              </Button>
+              <div className="mt-6 flex justify-center gap-4">
+                <Button asChild>
+                  <Link href="/services">View Services</Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link href="/trial">Start 90‑Day Trial</Link>
+                </Button>
+              </div>
+            </div>
+            {/* Healthcare solutions preview inside services */}
+            <div className="mt-12">
+              <h3 className="text-xl font-semibold mb-6 text-center">Some of our products in our pipeline</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {products.slice(0,4).map((product) => (
+                  <ProductCard
+                    key={product.slug}
+                    title={product.title}
+                    description={product.description}
+                    icon={product.icon}
+                    logoImage={product.logoImage}
+                    slug={product.slug}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="py-12 bg-gray-50">
+        {/* Enterprise CTA band */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto text-center bg-blue-900 text-white rounded-xl p-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">Try us with a risk‑free 90‑day build</h2>
+              <p className="text-blue-100 mb-6">We’ll sign an MoU, deliver a production‑grade slice, and if you’re happy, we scale as your AI‑native partner.</p>
+              <div className="flex gap-4 justify-center">
+                <Button asChild className="bg-white text-blue-900 hover:bg-gray-100">
+                  <Link href="/trial">Start 90‑Day Trial</Link>
+                </Button>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+                  <Link href="/services">See What We Build</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+  <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-10">Our Clients</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
