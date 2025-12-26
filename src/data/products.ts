@@ -88,7 +88,8 @@ export const products: Product[] = [
       "Remote follow-up capabilities",
       "Healthcare provider network"
     ]
-  },  {
+  },
+  {
     title: "IAMAI.HEALTH",
     description: "Revolutionary healthcare technology transforming patient care through advanced AI and robotics.",
     icon: "🤖",
@@ -106,6 +107,26 @@ export const products: Product[] = [
       "Continuous patient monitoring with instant alerts",
       "Advanced machine learning algorithms for condition detection",
       "Healthcare robotics for physician embodiment"
+    ]
+  },
+  {
+    title: "PScribe.in",
+    description: "India’s prescription platform for doctors to write, manage, and share prescriptions with clinical notes and voice input.",
+    icon: "📝",
+    logoImage: "/PScribeLogo.png",
+    slug: "pscribe",
+    longDescription: [
+      "PScribe.in is a modern prescription platform built for doctors across India.",
+      "It helps clinicians create precision prescriptions, capture clinical notes (including via voice-to-text), and share verified prescriptions with patients.",
+      "PScribe also supports structured diagnosis workflows, smart templates, and a patient portal so records stay accessible and organized."
+    ],
+    features: [
+      "Voice-to-text dictation for clinical notes",
+      "ICD-11 diagnosis code search",
+      "Clinical notes, requests, and diagnosis capture",
+      "Patient portal for record access",
+      "Smart templates for reusable formats",
+      "Secure, QR-verified prescriptions"
     ]
   }
 ];

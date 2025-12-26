@@ -8,6 +8,11 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 
 export default function Home() {
+  const homeProductSlugs = ["healthpilot", "medneuron", "first-clinic", "chennai-health", "pscribe", "iamai-health"];
+  const homeProducts = homeProductSlugs
+    .map((slug) => products.find((product) => product.slug === slug))
+    .filter((product): product is (typeof products)[number] => Boolean(product));
+
   const clientLogos = [
     { id: "abbott", src: "/logos/clients/abbott.webp", alt: "Abbott Laboratories" },
     { id: "abbvie", src: "/logos/clients/abbvie.webp", alt: "AbbVie" },
@@ -60,7 +65,7 @@ export default function Home() {
             <div className="mt-12">
               <h3 className="text-xl font-semibold mb-6 text-center">Some of our products in our pipeline</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {products.slice(0,4).map((product) => (
+                {homeProducts.map((product) => (
                   <ProductCard
                     key={product.slug}
                     title={product.title}
@@ -85,7 +90,7 @@ export default function Home() {
                 <Button asChild className="bg-white text-blue-900 hover:bg-gray-100">
                   <Link href="/trial">Start 90‑Day Trial</Link>
                 </Button>
-                <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white">
                   <Link href="/services">See What We Build</Link>
                 </Button>
               </div>
