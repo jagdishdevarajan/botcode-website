@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BotCode — AI‑native software for enterprises",
+  title: "BotCode - AI‑native software for enterprises",
   description: "We design and ship custom, AI‑native systems with human‑in‑the‑loop assurance. Lower TCO, faster delivery, full IP ownership.",
 };
 
