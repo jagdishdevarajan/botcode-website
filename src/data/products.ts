@@ -74,7 +74,7 @@ export const products: Product[] = [
     title: "Chennai.Health",
     description: "Making Chennai the preferred healthcare destination for the world with cutting-edge AI and medical expertise.",
     icon: "🌍",
-    logoImage: "/logos/chennai_health_logo.png",
+    logoImage: "/ChennaiHealthLogo.png",
     slug: "chennai-health",
     longDescription: [
       "Chennai.Health is an initiative to position Chennai as a global hub for advanced healthcare services, leveraging the city's medical expertise and BotCode's AI capabilities.",
@@ -87,26 +87,6 @@ export const products: Product[] = [
       "Personalized care pathways",
       "Remote follow-up capabilities",
       "Healthcare provider network"
-    ]
-  },
-  {
-    title: "IAMAI.HEALTH",
-    description: "Revolutionary healthcare technology transforming patient care through advanced AI and robotics.",
-    icon: "🤖",
-    logoImage: "/logos/IAMAILogo.png",
-    slug: "iamai-health",
-    longDescription: [
-      "IAMAI.HEALTH is pioneering the revolutionary era of advanced robotics and AI in healthcare, where precision meets compassion, and technology saves lives.",
-      "Our platform integrates AI-powered diagnostics, real-time monitoring, and robotic surgery capabilities to deliver superhuman accuracy in medical care.",
-  "IAMAI.HEALTH represents the future of healthcare with projected 99.9% precision rates and the vision of healthcare robotics enabling physician embodiment of Healthcare AI."
-    ],
-    features: [
-      "AI-powered diagnostics with superhuman accuracy",
-      "Real-time patient monitoring with predictive insights",
-      "Robotic surgery with AI-guided precision",
-      "Continuous patient monitoring with instant alerts",
-      "Advanced machine learning algorithms for condition detection",
-      "Healthcare robotics for physician embodiment"
     ]
   },
   {
@@ -127,6 +107,27 @@ export const products: Product[] = [
       "Patient portal for record access",
       "Smart templates for reusable formats",
       "Secure, QR-verified prescriptions"
+    ]
+  },
+  {
+    title: "NeetClass",
+    description: "AI-assisted NEET exam trainer with adaptive learning for UG and PG medical entrance preparation.",
+    icon: "📚",
+    logoImage: "/neetclass_favicon_512.png",
+    slug: "neetclass",
+    longDescription: [
+      "NeetClass is an intelligent exam preparation platform designed for aspiring medical professionals preparing for NEET (National Eligibility cum Entrance Test) exams.",
+      "Our AI-powered system provides personalized learning pathways for both undergraduate (UG) and postgraduate (PG) candidates, adapting to individual learning styles and knowledge gaps.",
+      "With real-time performance analytics, AI tutoring, and curated exam-focused content, NeetClass helps students maximize their preparation efficiency and exam performance. Visit neetclass.com to learn more."
+    ],
+    features: [
+      "AI-powered adaptive learning engine",
+      "Personalized study pathways for UG and PG",
+      "Real-time performance analytics and insights",
+      "AI-assisted doubt resolution and tutoring",
+      "Comprehensive question bank with explanations",
+      "Mock tests with exam-like experience",
+      "Progress tracking and recommendation engine"
     ]
   }
 ];
