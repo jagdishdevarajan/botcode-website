@@ -3,10 +3,18 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
+
+const fieldClass =
+  "bg-white/[0.03] border-white/10 text-bc-ink placeholder:text-bc-muted/70 focus-visible:ring-bc-accent/40 focus-visible:ring-offset-0";
+const selectClass =
+  "w-full h-10 rounded-md border border-white/10 bg-white/[0.03] px-3 text-sm text-bc-ink focus:outline-none focus:ring-2 focus:ring-bc-accent/40";
+const labelClass = "block text-sm font-medium mb-1.5 text-bc-ink/90";
+const checkClass = "flex items-center gap-2 text-sm text-bc-ink/80";
 
 export default function TrialPage() {
   const [sending, setSending] = useState(false);
@@ -36,7 +44,7 @@ export default function TrialPage() {
         `\nAI Scope\n` +
         `Capabilities: ${checklist("ai_scope")}\n` +
         `HITL Needs: ${txt("hitl_needs")}\n` +
-        `Evals / Guardrails: ${txt("evals") }\n` +
+        `Evals / Guardrails: ${txt("evals")}\n` +
         `\nSystems & Data\n` +
         `Data Sources & Access: ${txt("data_sources")}\n` +
         `Integrations: ${txt("integrations")}\n` +
@@ -47,18 +55,15 @@ export default function TrialPage() {
         `\nNDA Required: ${txt("nda") === "on" ? "Yes" : "No"}\n` +
         `MoU Trial Terms Accepted: ${txt("mou") === "on" ? "Yes" : "No"}`;
 
-      // Prepare JSON payload for server-side email
       const payload: Record<string, any> = {};
       data.forEach((value, key) => {
         if (payload[key]) {
-          // consolidate repeated keys (checkbox groups)
           payload[key] = Array.isArray(payload[key]) ? [...payload[key], value] : [payload[key], value];
         } else {
           payload[key] = value;
         }
       });
 
-      // Attempt server-side send via Resend API route
       const res = await fetch("/api/trial", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -74,19 +79,11 @@ export default function TrialPage() {
             console.warn("/api/trial server send responded ok=false:", info?.error);
           }
         } catch (e) {
-          // Non-JSON or unexpected response; fallback to be safe
           shouldFallback = true;
         }
       }
 
       if (shouldFallback) {
-        try {
-          const info = await res.json();
-          console.warn("/api/trial server send failed:", info?.error || res.statusText);
-        } catch (_) {
-          console.warn("/api/trial server send failed with status:", res.status, res.statusText);
-        }
-        // Fallback to EmailJS client send if server route fails
         const templateParams = {
           user_name: `${txt("company_name")} — ${txt("contact_name")}`,
           user_email: txt("work_email"),
@@ -102,7 +99,7 @@ export default function TrialPage() {
         );
       }
       form.reset();
-      alert("Thanks! We’ve received your request. Our team will reach out shortly.");
+      alert("Thanks! We've received your request. Our team will reach out shortly.");
     } catch (err) {
       console.error(err);
       alert("Failed to submit. Please try again or email jagdish@botcode.com.");
@@ -112,87 +109,83 @@ export default function TrialPage() {
   };
 
   return (
-    <>
+    <div className="bc-dark">
       <Header />
       <main className="flex-grow">
-        <div className="bg-blue-900 text-white py-16">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold mb-4">Start 90‑Day Build Trial</h1>
-            <p className="text-xl">Tell us about your AI‑native project. We’ll sign an MoU and deliver a production‑grade slice in 90 days.</p>
-          </div>
-        </div>
+        <PageHero
+          eyebrow="90-day build trial"
+          title="Start a production-grade build"
+          subtitle="Tell us about your AI-native project. We'll sign an MoU and deliver a production-grade slice in 90 days."
+        />
 
-        <section className="py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
+        <section className="bg-bc-canvas py-20">
+          <div className="mx-auto max-w-4xl px-6">
             <form onSubmit={handleSubmit} className="space-y-10">
               {/* Company */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">Company</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormSection title="Company">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Company Name *</label>
-                    <Input name="company_name" required placeholder="Acme Inc." />
+                    <label className={labelClass}>Company Name *</label>
+                    <Input name="company_name" required placeholder="Acme Inc." className={fieldClass} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Website</label>
-                    <Input name="company_website" type="url" placeholder="https://example.com" />
+                    <label className={labelClass}>Website</label>
+                    <Input name="company_website" type="url" placeholder="https://example.com" className={fieldClass} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Industry</label>
-                    <Input name="industry" placeholder="Finance, Retail, Healthcare, etc." />
+                    <label className={labelClass}>Industry</label>
+                    <Input name="industry" placeholder="Finance, Retail, Healthcare, etc." className={fieldClass} />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Region/Country</label>
-                      <Input name="region" placeholder="US, EU, India, etc." />
+                      <label className={labelClass}>Region/Country</label>
+                      <Input name="region" placeholder="US, EU, India, etc." className={fieldClass} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Timezone</label>
-                      <Input name="timezone" placeholder="UTC−5, UTC+1, IST, etc." />
+                      <label className={labelClass}>Timezone</label>
+                      <Input name="timezone" placeholder="UTC−5, IST, etc." className={fieldClass} />
                     </div>
                   </div>
                 </div>
-              </div>
+              </FormSection>
 
               {/* Contact */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">Primary Contact</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormSection title="Primary Contact">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Name *</label>
-                    <Input name="contact_name" required placeholder="Jane Doe" />
+                    <label className={labelClass}>Name *</label>
+                    <Input name="contact_name" required placeholder="Jane Doe" className={fieldClass} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Work Email *</label>
-                    <Input name="work_email" type="email" required placeholder="jane@company.com" />
+                    <label className={labelClass}>Work Email *</label>
+                    <Input name="work_email" type="email" required placeholder="jane@company.com" className={fieldClass} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Role / Title</label>
-                    <Input name="contact_title" placeholder="VP Engineering" />
+                    <label className={labelClass}>Role / Title</label>
+                    <Input name="contact_title" placeholder="VP Engineering" className={fieldClass} />
                   </div>
                 </div>
-              </div>
+              </FormSection>
 
               {/* Project */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">Project</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormSection title="Project">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Project Title *</label>
-                    <Input name="project_title" required placeholder="AI‑native customer support automation" />
+                    <label className={labelClass}>Project Title *</label>
+                    <Input name="project_title" required placeholder="AI-native support automation" className={fieldClass} />
                   </div>
                   <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Timeline</label>
-                      <select name="timeline" className="w-full border rounded-md h-10 px-3">
+                      <label className={labelClass}>Timeline</label>
+                      <select name="timeline" className={selectClass}>
                         <option value="90 days">90 days</option>
                         <option value="3–6 months">3–6 months</option>
                         <option value="> 6 months">&gt; 6 months</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Budget Range (USD)</label>
-                      <select name="budget" className="w-full border rounded-md h-10 px-3">
+                      <label className={labelClass}>Budget (USD)</label>
+                      <select name="budget" className={selectClass}>
                         <option value="< 25k">&lt; 25k</option>
                         <option value="25k–75k">25k–75k</option>
                         <option value="75k–150k">75k–150k</option>
@@ -201,123 +194,122 @@ export default function TrialPage() {
                     </div>
                   </div>
                 </div>
-
                 <div className="mt-6 grid grid-cols-1 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Project Summary *</label>
-                    <Textarea name="project_summary" required placeholder="What are we building and why? Who are the users?" className="min-h-[120px]" />
+                    <label className={labelClass}>Project Summary *</label>
+                    <Textarea name="project_summary" required placeholder="What are we building and why? Who are the users?" className={`min-h-[120px] ${fieldClass}`} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Objectives / Success Criteria</label>
-                    <Textarea name="objectives" placeholder="KPIs, quality targets, time/cost goals" className="min-h-[100px]" />
+                    <label className={labelClass}>Objectives / Success Criteria</label>
+                    <Textarea name="objectives" placeholder="KPIs, quality targets, time/cost goals" className={`min-h-[100px] ${fieldClass}`} />
                   </div>
                 </div>
-              </div>
+              </FormSection>
 
               {/* AI Scope */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">AI Scope</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormSection title="AI Scope">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Capabilities</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label className="mb-2 block text-sm font-medium text-bc-ink/90">Capabilities</label>
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                       {[
-                        { v: "RAG", l: "Retrieval Augmented Generation (RAG)" },
+                        { v: "RAG", l: "Retrieval (RAG)" },
                         { v: "function-calling", l: "Function Calling / Tool Use" },
-                        { v: "agents", l: "Single/Multi‑Agent Orchestration" },
+                        { v: "agents", l: "Multi-Agent Orchestration" },
                         { v: "workflows", l: "Workflow Automation" },
-                        { v: "hitl", l: "Human‑in‑the‑Loop" },
+                        { v: "hitl", l: "Human-in-the-Loop" },
                         { v: "evals", l: "Evals / Guardrails" },
                         { v: "mlops", l: "MLOps / Monitoring" },
                         { v: "data-pipelines", l: "Data Pipelines" },
                       ].map((o) => (
-                        <label key={o.v} className="flex items-center gap-2 text-sm">
-                          <input type="checkbox" name="ai_scope" value={o.v} /> {o.l}
+                        <label key={o.v} className={checkClass}>
+                          <input type="checkbox" name="ai_scope" value={o.v} className="accent-[#c5f955]" /> {o.l}
                         </label>
                       ))}
                     </div>
                   </div>
                   <div className="grid grid-cols-1 gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-1">HITL Needs</label>
-                      <Textarea name="hitl_needs" placeholder="Review queues, SLAs, approval flows" className="min-h-[80px]" />
+                      <label className={labelClass}>HITL Needs</label>
+                      <Textarea name="hitl_needs" placeholder="Review queues, SLAs, approval flows" className={`min-h-[80px] ${fieldClass}`} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Evals / Guardrails</label>
-                      <Textarea name="evals" placeholder="Quality metrics, thresholds, safety constraints" className="min-h-[80px]" />
+                      <label className={labelClass}>Evals / Guardrails</label>
+                      <Textarea name="evals" placeholder="Quality metrics, thresholds, safety constraints" className={`min-h-[80px] ${fieldClass}`} />
                     </div>
                   </div>
                 </div>
-              </div>
+              </FormSection>
 
               {/* Systems & Data */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">Systems & Data</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormSection title="Systems & Data">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Data Sources & Access</label>
-                    <Textarea name="data_sources" placeholder="Where is the data? How do we access it?" className="min-h-[100px]" />
+                    <label className={labelClass}>Data Sources & Access</label>
+                    <Textarea name="data_sources" placeholder="Where is the data? How do we access it?" className={`min-h-[100px] ${fieldClass}`} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Integrations</label>
-                    <Textarea name="integrations" placeholder="CRMs, ERPs, data warehouses, internal systems" className="min-h-[100px]" />
+                    <label className={labelClass}>Integrations</label>
+                    <Textarea name="integrations" placeholder="CRMs, ERPs, data warehouses, internal systems" className={`min-h-[100px] ${fieldClass}`} />
                   </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Security / Compliance</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label className="mb-2 block text-sm font-medium text-bc-ink/90">Security / Compliance</label>
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                       {[
                         { v: "SOC2", l: "SOC 2" },
                         { v: "HIPAA", l: "HIPAA" },
                         { v: "ISO27001", l: "ISO 27001" },
                         { v: "GDPR", l: "GDPR" },
                       ].map((o) => (
-                        <label key={o.v} className="flex items-center gap-2 text-sm">
-                          <input type="checkbox" name="compliance" value={o.v} /> {o.l}
+                        <label key={o.v} className={checkClass}>
+                          <input type="checkbox" name="compliance" value={o.v} className="accent-[#c5f955]" /> {o.l}
                         </label>
                       ))}
                     </div>
                     <div className="mt-3">
-                      <Input name="compliance_other" placeholder="Other (optional)" />
+                      <Input name="compliance_other" placeholder="Other (optional)" className={fieldClass} />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Deployment Preference</label>
-                    <select name="deployment" className="w-full border rounded-md h-10 px-3">
+                    <label className={labelClass}>Deployment Preference</label>
+                    <select name="deployment" className={selectClass}>
                       <option value="cloud-azure">Cloud — Azure</option>
                       <option value="cloud-aws">Cloud — AWS</option>
                       <option value="cloud-gcp">Cloud — GCP</option>
-                      <option value="on-prem">On‑prem</option>
+                      <option value="on-prem">On-prem</option>
                       <option value="hybrid">Hybrid</option>
                     </select>
                   </div>
                 </div>
-
                 <div className="mt-6 grid grid-cols-1 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-1">IP / Licensing Requirements</label>
-                    <Textarea name="ip_requirements" placeholder="IP ownership, licensing, data residency" className="min-h-[80px]" />
+                    <label className={labelClass}>IP / Licensing Requirements</label>
+                    <Textarea name="ip_requirements" placeholder="IP ownership, licensing, data residency" className={`min-h-[80px] ${fieldClass}`} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Links / Artifacts</label>
-                    <Textarea name="links" placeholder="Docs, designs, repos, demos" className="min-h-[80px]" />
+                    <label className={labelClass}>Links / Artifacts</label>
+                    <Textarea name="links" placeholder="Docs, designs, repos, demos" className={`min-h-[80px] ${fieldClass}`} />
                   </div>
                 </div>
-              </div>
+              </FormSection>
 
               {/* Legal / Submit */}
-              <div className="space-y-4">
-                <label className="flex items-center gap-2 text-sm">
-                  <input type="checkbox" name="nda" /> NDA required
+              <div className="space-y-4 rounded-3xl border bc-hairline bg-bc-card p-7">
+                <label className={checkClass}>
+                  <input type="checkbox" name="nda" className="accent-[#c5f955]" /> NDA required
                 </label>
-                <label className="flex items-center gap-2 text-sm">
-                  <input type="checkbox" name="mou" required /> I agree to proceed with a 90‑day trial under an MoU
+                <label className={checkClass}>
+                  <input type="checkbox" name="mou" required className="accent-[#c5f955]" /> I agree to proceed with a 90-day trial under an MoU
                 </label>
                 <div className="pt-2">
-                  <Button type="submit" disabled={sending}>
-                    {sending ? "Submitting..." : "Submit 90‑Day Trial Request"}
+                  <Button
+                    type="submit"
+                    disabled={sending}
+                    className="rounded-full bg-bc-accent px-7 py-3 font-semibold text-black hover:bg-bc-accent hover:shadow-[0_0_30px_-6px_rgba(197,249,85,0.6)]"
+                  >
+                    {sending ? "Submitting..." : "Submit 90-Day Trial Request"}
                   </Button>
                 </div>
               </div>
@@ -326,6 +318,15 @@ export default function TrialPage() {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
+  );
+}
+
+function FormSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-3xl border bc-hairline bg-bc-card p-7">
+      <h2 className="font-display mb-5 text-xl font-semibold text-bc-ink">{title}</h2>
+      {children}
+    </div>
   );
 }

@@ -1,6 +1,8 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/PageHero";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function BlogIndex() {
   const posts = [
@@ -13,30 +15,38 @@ export default function BlogIndex() {
   ];
 
   return (
-    <>
+    <div className="bc-dark">
       <Header />
       <main className="flex-grow">
-        <div className="bg-blue-900 text-white py-16">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold mb-4">Blog</h1>
-            <p className="text-xl">Perspectives on AI‑native software and modern delivery.</p>
-          </div>
-        </div>
+        <PageHero
+          eyebrow="Writing"
+          title="Perspectives on AI-native software"
+          subtitle="Notes on agent orchestration, modern delivery, and the economics of building with AI."
+        />
 
-        <section className="py-16">
-          <div className="container mx-auto px-4 max-w-4xl space-y-8">
+        <section className="bg-bc-canvas py-20">
+          <div className="mx-auto max-w-4xl space-y-5 px-6">
             {posts.map((p) => (
-              <article key={p.slug} className="border rounded-lg p-6 hover:shadow-sm transition">
-                <h2 className="text-2xl font-bold mb-2">
-                  <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="group block rounded-3xl border bc-hairline bg-bc-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-bc-accent/40 hover:shadow-[0_0_50px_-12px_rgba(197,249,85,0.25)]"
+              >
+                <span className="bc-eyebrow">Article</span>
+                <h2 className="font-display mt-3 text-2xl font-semibold text-bc-ink">
+                  {p.title}
                 </h2>
-                <p className="text-gray-700">{p.excerpt}</p>
-              </article>
+                <p className="mt-3 leading-relaxed text-bc-muted">{p.excerpt}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-bc-ink transition-colors group-hover:text-bc-accent">
+                  Read article
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </Link>
             ))}
           </div>
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

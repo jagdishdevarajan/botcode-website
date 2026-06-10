@@ -121,20 +121,22 @@ function LogoMarquee({
   return (
     <section className={`${background} border-y border-white/10 py-14`}>
       <p className="bc-eyebrow mb-9 text-center">{label}</p>
-      <div className="bc-marquee-track group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-        <div className="bc-marquee flex w-max items-center gap-16">
+      <div className="bc-marquee-track group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="bc-marquee flex w-max items-center gap-6">
           {doubled.map((logo, i) => (
             <div
               key={`${logo.id}-${i}`}
-              className="relative h-9 w-28 shrink-0 opacity-50 brightness-0 invert transition-opacity duration-300 hover:opacity-100"
+              className="flex h-16 w-36 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white px-5 opacity-80 transition-opacity duration-300 hover:opacity-100"
             >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                fill
-                style={{ objectFit: 'contain' }}
-                sizes="112px"
-              />
+              <div className="relative h-8 w-full">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  sizes="144px"
+                />
+              </div>
             </div>
           ))}
         </div>
