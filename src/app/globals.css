@@ -29,6 +29,16 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* BotCode frontier-lab palette */
+    --bc-canvas: #08090a;
+    --bc-panel: #0e0f12;
+    --bc-card: #121317;
+    --bc-ink: #ededeb;
+    --bc-muted: #8b8c89;
+    --bc-line: rgba(255, 255, 255, 0.09);
+    --bc-accent: #c5f955;
+    --bc-accent-deep: #9ae600;
   }
 
   .dark {
@@ -65,5 +75,104 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* The homepage opts into the dark frontier canvas */
+  .bc-dark {
+    background-color: var(--bc-canvas);
+    color: var(--bc-ink);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .font-display {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  /* Eyebrow / label treatment */
+  .bc-eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bc-muted);
+  }
+
+  /* Lime gradient text for emphasized phrases */
+  .bc-gradient-text {
+    background: linear-gradient(
+      100deg,
+      var(--bc-accent) 0%,
+      #e9ffb0 45%,
+      var(--bc-accent-deep) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Fine dotted grid background */
+  .bc-grid {
+    background-image: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  /* Soft accent glow blob */
+  .bc-glow {
+    background: radial-gradient(
+      circle at center,
+      rgba(197, 249, 85, 0.18) 0%,
+      rgba(197, 249, 85, 0.05) 35%,
+      transparent 70%
+    );
+    filter: blur(8px);
+  }
+
+  /* Subtle film grain overlay */
+  .bc-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Card surface */
+  .bc-card {
+    background-color: var(--bc-card);
+    border: 1px solid var(--bc-line);
+  }
+
+  .bc-hairline {
+    border-color: var(--bc-line);
+  }
+
+  .bc-marquee {
+    animation: bc-scroll 38s linear infinite;
+  }
+  .bc-marquee-track:hover .bc-marquee {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes bc-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

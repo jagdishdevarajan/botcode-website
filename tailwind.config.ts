@@ -9,7 +9,21 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			display: ['var(--font-display)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			mono: ['var(--font-mono)', 'ui-monospace', 'monospace']
+  		},
   		colors: {
+  			bc: {
+  				canvas: '#08090a',
+  				panel: '#0e0f12',
+  				card: '#121317',
+  				ink: '#ededeb',
+  				muted: '#8b8c89',
+  				accent: '#c5f955',
+  				'accent-deep': '#9ae600'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
