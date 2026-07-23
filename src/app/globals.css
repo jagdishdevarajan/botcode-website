@@ -39,6 +39,10 @@
     --bc-line: rgba(255, 255, 255, 0.09);
     --bc-accent: #c5f955;
     --bc-accent-deep: #9ae600;
+
+    /* Partner brand accents. Not BotCode's accent, so they stay out of the
+       --bc-* namespace. Tuned for the dark canvas; on a light theme use #0d9488. */
+    --brand-medneuron: #2dd4bf;
   }
 
   .dark {
