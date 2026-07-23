@@ -13,6 +13,12 @@
 # testing
 /coverage
 
+# local Claude Code tooling (per-machine, not app code)
+/.agents/
+/.claude/
+/.next-dev.log
+/skills-lock.json
+
 # next.js
 /.next/
 /out/
