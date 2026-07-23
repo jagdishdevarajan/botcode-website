@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="MedNeuron">
+  <title>MedNeuron</title>
+  <defs>
+    <linearGradient id="mn-mark" x1="0" y1="24" x2="48" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#1fb8d4"/>
+    </linearGradient>
+  </defs>
+  <!-- dendrites -->
+  <path d="M11 13 L6.5 8.5 M9 24 L3 24 M11 35 L6.5 39.5" stroke="url(#mn-mark)" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- soma -->
+  <circle cx="15" cy="24" r="6" stroke="url(#mn-mark)" stroke-width="2.6"/>
+  <!-- axon as an ECG trace -->
+  <path d="M21 24 H26 L28.5 18 L32 30 L34.5 24 H37" stroke="url(#mn-mark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- the inference gate -->
+  <path d="M39.5 17 V31" stroke="#f59e0b" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- computation that mostly never happens -->
+  <path d="M43 24 H45.5" stroke="url(#mn-mark)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.1 4.4"/>
+</svg>

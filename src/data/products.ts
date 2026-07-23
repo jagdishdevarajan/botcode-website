@@ -6,6 +6,8 @@ export interface Product {
   logoImage?: string;
   slug: string;
   features?: string[];
+  /** Trailing part of the title shown in the product's own brand colour, e.g. "Neuron". */
+  accentSuffix?: string;
 }
 
 export const products: Product[] = [
@@ -30,24 +32,26 @@ export const products: Product[] = [
   },
   {
     title: "MedNeuron",
-    description: "AI Engine for Clinical Excellence - Specialized RAG models for clinical decision support, built on evidence and tuned for action.",
+    accentSuffix: "Neuron",
+    description: "The patent-pending inference gate for clinical AI. It suppresses AI computation while a patient is on track, so cost scales with deviation rather than data volume.",
     icon: "🧠",
-    logoImage: "/MedNeuronLogoTransparent.png",
+    logoImage: "/logos/medneuron-mark.svg",
     slug: "medneuron",
     longDescription: [
-      "MedNeuron is a specialized AI engine that powers HealthPilot.ai's intelligent healthcare platform while offering standalone AI services for organizations seeking specialized clinical intelligence.",
-      "Built on evidence-based knowledge from standards of care, medical literature, screening guidelines, and real-world clinical data, MedNeuron delivers precision clinical intelligence through fine-tuned RAG models.",
-      "Available as both standalone service and integrated platform, MedNeuron provides customizable clinical workflows with on-premise or cloud deployment options, all within a HIPAA compliant architecture."
+      "MedNeuron is a control layer, not another model. For every milestone of a patient's expected treatment trajectory it derives the minimal clinical signal set, the handful of data points actually needed to confirm the patient is on track, and uses that set as a gate on computation itself.",
+      "While those signals confirm expected progress, the system suppresses model execution entirely and logs the confirmation. Only on a detected deviation does it escalate, selecting the least costly sufficient tier from deterministic rules up to a large model. Red-flag signals override everything for safety.",
+      "Trajectories come from clinical guidelines where they exist. Where they do not, an intuitive editor lets the physician design the trajectory their patients usually follow, and the gate treats it exactly like a guideline-derived one. A resource-footprint ledger then itemizes what was avoided: model runs, lab tests, imaging, visits, and travel, converted into energy, cost, and carbon terms.",
+      "Patent pending in India, application number 202641072734. MedNeuron is designed to drop in behind any EHR, CDS, or remote-monitoring stack, and is coming soon out of the box on HealthPilot.ai."
     ],
     features: [
-      "Fine-tuned RAG models for multiple medical specialties",
-      "Real-time clinical decision support with low-latency inference",
-      "Evidence-based recommendations from medical literature",
-      "HIPAA compliant architecture for healthcare environments",
-      "Specialized models for General Medicine, Obesity, Endocrine, Psychiatry",
-      "Customizable clinical workflows and deployment options",
-      "Multi-modal data processing capabilities",
-      "Continuous learning from clinical outcomes"
+      "Minimal clinical signal set derived per milestone",
+      "Tiered inference gate, from rules to a large model",
+      "Physician-designed trajectories where guidelines do not fit",
+      "Resource-footprint ledger with energy, cost, and CO₂e",
+      "Expected side effects tracked in-stream, not as new workups",
+      "Natural-history comparison for shared decision-making",
+      "Every suppression and escalation carries its basis",
+      "REST API for any EHR, CDS, or remote-monitoring stack"
     ]
   },
   {

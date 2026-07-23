@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { products } from "@/data/products";
+import { ProductTitle } from "@/components/ProductTitle";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Check } from "lucide-react";
@@ -51,7 +52,7 @@ export default function ProductsPage() {
                       <div className="text-5xl">{product.icon}</div>
                     )}
                     <h2 className="font-display text-3xl font-semibold text-bc-ink">
-                      {product.title}
+                      <ProductTitle title={product.title} accentSuffix={product.accentSuffix} />
                     </h2>
                   </div>
 
